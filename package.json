@@ -2,24 +2,28 @@
   "name": "goodreads",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/init.js",
+  "types": "dist/init.d.ts",
   "scripts": {
     "ts:build": "tsc",
     "postinstall": "npm run ts:build",
-    "serve": "node dist/server.js",
+    "serve": "node dist/init.js",
     "start": "npm run ts:build && npm run serve",
-    "watch-node": "nodemon dist/server.js",
+    "watch-node": "nodemon dist/init.js",
     "watch-ts": "tsc -w"
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node":"12.16.1"
+  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.5",
     "ejs": "^3.0.1",
     "express": "^4.16.2",
-    "goodreads-api-node": "0.0.10"
+    "goodreads-api-node": "0.0.10",
+    "typescript": "^3.7.5"
   },
   "devDependencies": {
     "@types/node": "^13.5.2"
