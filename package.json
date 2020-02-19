@@ -5,10 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build-ts": "tsc",
-    "postinstall": "npm run build-ts",
-    "start": "npm run serve",
+    "ts:build": "tsc",
+    "postinstall": "npm run ts:build",
     "serve": "node dist/server.js",
+    "start": "npm run ts:build && npm run serve",
     "watch-node": "nodemon dist/server.js",
     "watch-ts": "tsc -w"
   },
