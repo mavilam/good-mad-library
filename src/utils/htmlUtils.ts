@@ -20,4 +20,4 @@ function writeHtml(html) : void {
   })
 }
 
-export {composeHtml, readHtml, writeHtml }
+export {composeHtml, readHtml, writeHtml}
