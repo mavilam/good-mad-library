@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import path from 'path'
 import { BookData } from './model/bookData'
 import { composeHtml, readHtml, writeHtml } from './utils/htmlUtils'
+import { getToReadBooks } from './utils/goodreadsUtils'
 
 const myCredentials = {
   key: process.env['KEY'],
@@ -46,19 +47,18 @@ app.get('/goodreads_oauth_callback', (req, res) => {
    });
 })
 
-app.get('/to-read', (req, res) => {
-    return gr.getBooksOnUserShelf(userId, "to-read").then(response => { 
-      console.log(`${userId} - To-read`)
-      const bookData: BookData[] = response.books.book.map(book => new BookData(book))
+app.get('/to-read', async (req, res) => {
+  try{
+      let bookArr : string[] = await getToReadBooks(gr, userId)
+      const bookData : BookData[] = bookArr.map(book => new BookData(book))
       const htmlbase : string = readHtml()
       const bookListDivs : string = composeHtml(bookData)
       writeHtml(htmlbase.replace('<!--body-->', bookListDivs))
       return res.sendFile(path.join(__dirname, 'index.html'))
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).sendFile(path.join(__dirname, '500.html'))
-  })
+  } catch(err) {
+    console.log(err)
+    res.status(500).sendFile(path.join(__dirname, '500.html'))
+  }
 })
 
 app.listen(Number(process.env['PORT']), function () {
