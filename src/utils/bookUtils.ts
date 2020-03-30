@@ -1,9 +1,12 @@
 import fs from 'fs'
 
-function composeBiblioLink(title: string, author: string) : string {
+function composeLibraryLink(title: string, author: string) {
   const titleWoAccents : string = prepareText(title).replace(/\(.*/, "")
   const authorWoAccents : string = prepareText(author)
-  return `https://gestiona3.madrid.org/biblio_publicas/cgi-bin/abnetopac?SUBC=OPP/BPZ&ACC=DOSEARCH&xsqf99=${titleWoAccents} ${authorWoAccents}`
+  return {
+    paper:`https://gestiona3.madrid.org/biblio_publicas/cgi-bin/abnetopac?SUBC=OPP/BPZ&ACC=DOSEARCH&xsqf99=${titleWoAccents} ${authorWoAccents}`,
+    ebiblio: `http://madrid.ebiblio.es/opac/?query=${titleWoAccents} ${authorWoAccents}`
+  }
 }
 
 function writeBooks(books) : void {
@@ -18,4 +21,4 @@ function prepareText(str : string) {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(' ','+')
 } 
 
-export {composeBiblioLink, writeBooks}
+export {composeLibraryLink, writeBooks}

@@ -7,11 +7,11 @@ function composeHtml(books : BookData[]) : string{
 }
 
 function composeBookElement(book) : string {
-  return `<div class=\"book\"><img src=\"${book.image}\" alt=\"Book cover\"><p>${book.title} de ${book.author}</p><a href=\"${book.biblioLink}\">Biblioteca</a></div>`
+  return `<div class=\"book\"><img src=\"${book.image}\" alt=\"Book cover\"><p>${book.title} de ${book.author}</p><a href=\"${book.libraryLinks.paper}\">Biblioteca</a><br><a href=\"${book.libraryLinks.ebiblio}\">eBiblio</a></div>`
 }
 
 function readHtml() : string {
-  return fs.readFileSync('front/_index.html', 'utf-8')
+  return fs.readFileSync('../front/_index.html', 'utf-8')
 }
 
 function writeHtml(html) : void {
