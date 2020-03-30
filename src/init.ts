@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).sendFile(path.join(__dirname, '500.html'))
+      res.status(500).sendFile(path.join(__dirname, '../front/500.html'))
     })
 })
 
@@ -42,7 +42,7 @@ app.get('/goodreads_oauth_callback', (req, res) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).sendFile(path.join(__dirname, '500.html'))
+      res.status(500).sendFile(path.join(__dirname, '../front/500.html'))
     })
    });
 })
@@ -57,7 +57,7 @@ app.get('/to-read', async (req, res) => {
       return res.sendFile(path.join(__dirname, 'index.html'))
   } catch(err) {
     console.log(err)
-    res.status(500).sendFile(path.join(__dirname, '500.html'))
+    res.status(500).sendFile(path.join(__dirname, '../front/500.html'))
   }
 })
 
