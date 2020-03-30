@@ -11,7 +11,7 @@ function composeBookElement(book) : string {
 }
 
 function readHtml() : string {
-  return fs.readFileSync('../front/_index.html', 'utf-8')
+  return fs.readFileSync('/app/front/_index.html', 'utf-8')
 }
 
 function writeHtml(html) : void {
