@@ -50,6 +50,7 @@ app.get('/goodreads_oauth_callback', (req, res) => {
 app.get('/to-read', async (req, res) => {
   try{
       let bookArr : string[] = await getToReadBooks(gr, userId)
+      if (bookArr.length < 1) return res.status(200).sendFile(path.join(__dirname, '../front/noBooks.html'))
       const bookData : BookData[] = bookArr.map(book => new BookData(book))
       const htmlbase : string = readHtml()
       const bookListDivs : string = composeHtml(bookData)
