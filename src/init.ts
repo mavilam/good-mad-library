@@ -50,7 +50,7 @@ app.get('/goodreads_oauth_callback', (req, res) => {
 app.get('/to-read', async (req, res) => {
   try{
       let bookArr : string[] = await getToReadBooks(gr, userId)
-      if (bookArr.length < 1) return res.status(200).sendFile(path.join(__dirname, '../front/noBooks.html'))
+      if (!bookArr || bookArr.length < 1) return res.status(200).sendFile(path.join(__dirname, '../front/noBooks.html'))
       const bookData : BookData[] = bookArr.map(book => new BookData(book))
       const htmlbase : string = readHtml()
       const bookListDivs : string = composeHtml(bookData)
@@ -58,6 +58,7 @@ app.get('/to-read', async (req, res) => {
       return res.sendFile(path.join(__dirname, 'index.html'))
   } catch(err) {
     console.log(err)
+    if (err.message.includes('need an oAuth')) return res.redirect(siteURL)
     res.status(500).sendFile(path.join(__dirname, '../front/500.html'))
   }
 })
