@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({ routes })
 
-axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/https://9bbe1860e233.eu.ngrok.io'
+axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/https://good-mad-library.herokuapp.com/'
 
 Vue.config.productionTip = false
 
