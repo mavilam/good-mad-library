@@ -3,8 +3,8 @@ import goodreads from 'goodreads-api-node'
 import bodyParser from 'body-parser'
 import path from 'path'
 import { BookData } from './model/bookData'
-import { composeHtml, readHtml, writeHtml } from './utils/htmlUtils'
-import { getToReadBooks } from './utils/goodreadsUtils'
+import { getToReadBooks, getUserData } from './utils/goodreadsUtils'
+import logger from './utils/logger'
 
 const myCredentials = {
   key: process.env['KEY'],
@@ -16,56 +16,53 @@ const app = express()
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 
-const siteURL : string = process.env['URL']
+const serverURL : string = process.env['URL']
 const sitePort : Number = Number(process.env['PORT'])
+const frontURL : string = 'https://mavilam.github.io/good-mad-library'
 
-app.get('/', function(req, res) {
-  gr.initOAuth(`${siteURL}/goodreads_oauth_callback`)
+app.get('/init_oauth', function(req, res) {
+  gr.initOAuth(`${serverURL}/goodreads_oauth_callback`)
   return gr.getRequestToken()
     .then(url => {
-      const htmlbase : string = readHtml('gotoread.html')
-      writeHtml(htmlbase.replace('<!--link-->', url), 'gotoread.html')
-      return res.sendFile(path.join(__dirname, 'gotoread.html'))
+      res.status(200).json({oAuthUrl: url})
     })
     .catch(err => {
-      console.log(err)
-      res.status(500).sendFile(path.join(__dirname, '../front/500.html'))
+      logger.error(err)
+      res.status(500).json({error: err})
     })
 })
 
 app.get('/goodreads_oauth_callback', (req, res) => {
   gr.getAccessToken()
   .then(() => {
-    gr.getCurrentUserInfo()
-    .then(userInfo => { 
-      const userId = userInfo.user.id
-      console.log(`${userId} - Callback`)
-      return res.redirect(`/to-read?userid=${userId}`)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).sendFile(path.join(__dirname, '../front/500.html'))
-    })
+    res.status(200).redirect(`${frontURL}#/callback`)
    });
+})
+
+app.get('/user-data', (req, res) => {
+  return getUserData(gr).then(data => {
+    return res.status(200).json(data)
+   })
+   .catch(err => {
+     logger.error(err)
+     res.status(500).json({error: err})
+   })
 })
 
 app.get('/to-read', async (req, res) => {
   try{
     const userId = req.query.userid
     let bookArr : string[] = await getToReadBooks(gr, userId)
-    if (!bookArr || bookArr.length < 1) return res.status(200).sendFile(path.join(__dirname, '../front/noBooks.html'))
+    if (!bookArr || bookArr.length < 1) return res.status(200).json([])
     const bookData : BookData[] = bookArr.map(book => new BookData(book))
-    const htmlbase : string = readHtml('index.html')
-    const bookListDivs : string = composeHtml(bookData)
-    writeHtml(htmlbase.replace('<!--body-->', bookListDivs), `index-${userId}.html`)
-    return res.sendFile(path.join(__dirname, `index-${userId}.html`))
+    return res.status(200).json(bookData)
   } catch(err) {
-    console.log(err)
-    if (err.message.includes('need an oAuth')) return res.redirect(siteURL)
-    res.status(500).sendFile(path.join(__dirname, '../front/500.html'))
+    logger.error(err)
+    if (err.message.includes('need an oAuth')) return res.redirect(frontURL)
+    res.status(500).json({error: err})
   }
 })
 
 app.listen(sitePort, function () {
-  console.log(`I'm running on ${siteURL}:${sitePort}`)
+  logger.info(`I'm running on ${serverURL}:${sitePort}`)
 })

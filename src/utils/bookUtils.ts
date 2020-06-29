@@ -1,4 +1,5 @@
 import fs from 'fs'
+import logger from './logger'
 
 function composeLibraryLink(title: string, author: string) {
   const titleWoAccents : string = prepareText(title).replace(/\(.*/, "")
@@ -13,7 +14,7 @@ function writeBooks(books) : void {
   fs.writeFile('src/front/bookinfo/books.json', JSON.stringify(books), {
     flag: 'w'
   }, (err) => {
-    if (err) console.log(`There was an error: ${err}`)
+    if (err) logger.error(`There was an error: ${err}`)
   })
 }
 
