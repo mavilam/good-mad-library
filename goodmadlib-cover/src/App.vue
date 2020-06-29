@@ -1,14 +1,22 @@
-<!doctype html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
-<title>Libros pendientes</title>
+<template>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: 'App'
+}
+</script>
 
 <style>
   html {
     margin: 2em;
     background-color: #c3ccd3;
     color: #47646f;
+    font-family: 'Roboto', sans-serif;
   }
 
   h2 {
@@ -45,7 +53,3 @@
     #1e383c,0 2px 4px 0 #1e383c;
   }
 </style>
-<h2>Libros pendientes de leer</h2>
-<main class="grid">
-  <!--body-->
-</main>
