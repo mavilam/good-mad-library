@@ -3,7 +3,7 @@ node_js:
  - "node"
 
 cache: npm
-before_script: cd goodmadlib-cover
+before_install: cd goodmadlib-cover
 script: npm run build
 
 deploy:
