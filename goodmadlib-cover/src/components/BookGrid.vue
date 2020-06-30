@@ -8,7 +8,10 @@
         :color="'#47646f'"
       />
     <div v-if="!!books && books.length > 0">
-      <a class="control" @click="orderByRating()">Ordena por nota</a>
+      <div class="header">
+        <h1>Libros pendientes de leer</h1>
+        <a class="control" @click="orderByRating()">Ordena por nota</a>
+      </div>
       <br>
       <main class="grid">
         <div
@@ -78,16 +81,25 @@
     margin: 1em;
   }
 
+  .header {
+    text-align: center;
+    margin-top: 1em;
+  }
+
   .control {
-      background-color:#f6f8fa;
-      border-radius: 3px;
-      padding: 1rem;
-      text-align: center;
-      border-left: 2px solid #1e383c;
-      box-shadow: 0 2px 4px 0
-      #1e383c,0 2px 4px 0 #1e383c;
-      cursor: pointer;
-      margin-bottom: 1em;
+    color: #1e383c !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    padding: 0.6rem;
+    box-shadow: 0 2px 4px 0 #1e383c,0 2px 4px 0 #1e383c;
+    max-width: 200px;
+    cursor: pointer;
+    margin: auto;
   }
 
     .grid { 
