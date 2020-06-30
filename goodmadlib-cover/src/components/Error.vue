@@ -1,13 +1,13 @@
 <template>
-  <div class="error" >
-      <h1>Ups 😥 estoy sufriendo un error, prueba en otro momento 😭</h1>
-    </div>
+  <div class="error">
+    <h1>Ups 😥 estoy sufriendo un error, prueba en otro momento 😭</h1>
+  </div>
 </template>
 
 <script>
-  export default {
-    name: 'error'
-  }
+export default {
+  name: 'Error'
+}
 </script>
 
 <style scoped>
@@ -23,4 +23,4 @@
     left: 0;
     right: 0;
   }
-</style>  
+</style>

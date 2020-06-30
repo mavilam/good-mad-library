@@ -1,0 +1,76 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "_": true,
+    "Vue": true
+  },
+  "extends": ["eslint:recommended", "plugin:vue/recommended"],
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2,
+      { "MemberExpression": 1 }
+    ],
+    "eol-last": "error",
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 1,
+        "maxEOF": 1
+      }
+    ],
+    "no-return-await": "warn",
+    "no-undef": "error",
+    "no-console": "warn",
+    "no-new-object": "warn",
+    "no-trailing-spaces": 1,
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "func-call-spacing": [
+      "error",
+      "never"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "named": "never",
+        "anonymous": "never"
+      }
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "after": true
+      }
+    ],
+    "padded-blocks": [
+      "error",
+      "never"
+    ],
+    "no-multi-spaces": "error",
+    "object-curly-spacing": ["error", "always"],
+    "no-new": 0
+  }
+}

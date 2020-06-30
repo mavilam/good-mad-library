@@ -1,44 +1,44 @@
 <template>
-  <div class="userdata" >
+  <div class="userdata">
     <fulfilling-square-spinner
       :animation-duration="1000"
       size="100"
       :color="'#47646f'"
-     />
+    />
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
-  import {FulfillingSquareSpinner} from 'epic-spinners'
+import axios from 'axios'
+import { FulfillingSquareSpinner } from 'epic-spinners'
 
-  export default {
-    name: 'userdata',
-    data() {
-      return {
-        userData: undefined
-      }
-    },
-    components: {
-      FulfillingSquareSpinner
-    },
-    watch: {
-      userData: function () {
-        console.log(JSON.stringify(this.userData))
-        if(this.userData.id) this.$router.push({ path: `/books/${this.userData.id}`})
-      }
-    },
-    mounted() {
-      axios.get('/user-data')
+export default {
+  name: 'Userdata',
+  components: {
+    FulfillingSquareSpinner
+  },
+  data() {
+    return {
+      userData: undefined
+    }
+  },
+  watch: {
+    userData: function() {
+      console.log(JSON.stringify(this.userData))
+      if (this.userData.id) this.$router.push({ path: `/books/${this.userData.id}` })
+    }
+  },
+  mounted() {
+    axios.get('/user-data')
       .then(res => {
         this.userData = res.data
       })
       .catch(err => {
         console.log(err)
-        this.$router.push({ path: `/error`})
+        this.$router.push({ path: `/error` })
       })
-    }
   }
+}
 </script>
 
 <style scoped>
@@ -55,4 +55,4 @@
     left: 0;
     right: 0;
   }
-</style>  
+</style>

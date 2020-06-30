@@ -1,13 +1,13 @@
 <template>
-  <div class="notfound" >
-      <h1>Parece que la página que buscas no existe 😥</h1>
-    </div>
+  <div class="notfound">
+    <h1>Parece que la página que buscas no existe 😥</h1>
+  </div>
 </template>
 
 <script>
-  export default {
-    name: 'NotFound'
-  }
+export default {
+  name: 'NotFound'
+}
 </script>
 
 <style scoped>
@@ -23,4 +23,4 @@
     left: 0;
     right: 0;
   }
-</style>  
+</style>
