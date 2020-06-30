@@ -20,6 +20,10 @@ const serverURL : string = process.env['URL']
 const sitePort : Number = Number(process.env['PORT'])
 const frontURL : string = 'https://mavilam.github.io/good-mad-library'
 
+app.get('/', function(req, res) {
+  return res.redirect(frontURL)
+})
+
 app.get('/init_oauth', function(req, res) {
   gr.initOAuth(`${serverURL}/goodreads_oauth_callback`)
   return gr.getRequestToken()
