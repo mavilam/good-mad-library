@@ -29,17 +29,18 @@
       })
       .catch(err => {
         console.log(err)
+        this.$router.push({ path: `/error`})
       })
       }
     },
     mounted () {
       axios.get('init_oauth')
       .then(res => {
-        console.log("return")
         this.url = res.data.oAuthUrl
       })
       .catch(err => {
         console.log(err)
+        this.$router.push({ path: `/error`})
       })
     }
   }
