@@ -2,6 +2,16 @@
   <div class="intro">
     <h1>¡Hola!👋</h1>
     <h3> ¿Quieres ver si tus libros pendientes de Goodreads están en la biblioteca de Madrid?</h3>
+    <div
+      v-if="!url"
+      class="spinner"
+    >
+      <spring-spinner
+        :animation-duration="3000"
+        :size="30"
+        color="#47646f"
+      />
+    </div>
     <a
       v-if="!!url"
       class="tagline"
@@ -14,9 +24,13 @@
 
 <script>
 import axios from 'axios'
+import { SpringSpinner } from 'epic-spinners'
 
 export default {
   name: 'Intro',
+  components: {
+    SpringSpinner
+  },
   data() {
     return {
       url: "",
@@ -55,4 +69,13 @@ export default {
   .intro {
     text-align: center;
   }
+
+  .spinner {
+    max-width: 30px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
 </style>
