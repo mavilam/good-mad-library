@@ -2,7 +2,7 @@
   <div class="userdata">
     <fulfilling-square-spinner
       :animation-duration="1000"
-      size="100"
+      :size="100"
       :color="'#47646f'"
     />
   </div>
@@ -44,7 +44,6 @@ export default {
 <style scoped>
   .userdata {
     text-align: center;
-    margin: auto;
     max-width: 100px;
     max-height: 100px;
     margin: auto;

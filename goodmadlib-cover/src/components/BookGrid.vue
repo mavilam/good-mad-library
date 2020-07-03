@@ -4,7 +4,7 @@
       v-if="!books"
       class="center-msg spinner"
       :animation-duration="1000"
-      size="100"
+      :size="100"
       :color="'#47646f'"
     />
     <div v-if="!!books && books.length > 0">
