@@ -20,11 +20,17 @@ const serverURL : string = process.env['URL']
 const sitePort : Number = Number(process.env['PORT'])
 const frontURL : string = 'https://mavilam.github.io/good-mad-library'
 
-app.get('/', function(req, res) {
+app.use((req, res, next)  => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next()
+});
+
+app.get('/', (req, res)  => {
   return res.redirect(frontURL)
 })
 
-app.get('/init_oauth', function(req, res) {
+app.get('/init_oauth', (req, res)  => {
   gr.initOAuth(`${serverURL}/goodreads_oauth_callback`)
   return gr.getRequestToken()
     .then(url => {
