@@ -23,33 +23,4 @@ export default {
     text-align: center;
     font-size: 2.5em;
   }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-    align-items: stretch;
-
-  }
-
-  .grid #book {
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-    max-width: 100%;
-  }
-
-  a {
-    color: #47646f;
-  }
-
-  .book {
-    background-color:#f6f8fa;
-    border-radius: 3px;
-    padding: 1rem;
-    text-align: center;
-    border-left: 2px solid #1e383c;
-    cursor: pointer;
-    box-shadow: 0 2px 4px 0
-    #1e383c,0 2px 4px 0 #1e383c;
-  }
 </style>
