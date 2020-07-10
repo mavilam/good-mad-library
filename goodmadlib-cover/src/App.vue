@@ -24,7 +24,6 @@ export default {
     font-size: 2.5em;
   }
 
-
   a {
     color: #47646f;
   }
