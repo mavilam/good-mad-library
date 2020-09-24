@@ -26,7 +26,7 @@
       <button
           v-if="!!url"
           class="bg-transparent font-semibold py-2 px-4 border-2 rounded"
-          :href="url"
+          @click="goToWeb()"
         >Pincha aqui y comprueba</button>
       <br>
       <p>
@@ -65,6 +65,9 @@ export default {
       })
   },
   methods: {
+    goToWeb() {
+      window.location.href = this.url
+    },
     getGoodReadsData() {
       axios.get(this.link)
         .then(res => {
