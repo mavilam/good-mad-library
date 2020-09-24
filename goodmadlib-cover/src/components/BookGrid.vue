@@ -9,29 +9,29 @@
     />
     <div v-if="!!books && books.length > 0">
       <div class="header">
-        <h1>Libros pendientes de leer</h1>
-        <a
-          class="control"
+        <h1 class="text-4xl">Libros pendientes de leer</h1>
+        <button
+          class="bg-transparent hover:bg-blue-500  font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           @click="orderByRating()"
-        >Ordena por nota</a>
+        >Ordena por nota</button>
       </div>
       <br>
       <main class="grid">
-        <div
-          v-for="(book, index) in books"
+        <div v-for="(book, index) in books"
           :key="index"
-          class="book"
-        >
-          <img
-            :src="book.image"
-            alt="Book cover"
-          >
-          <p>{{ book.title }} de {{ book.author }}</p>
-          <p>Número de páginas: {{ book.pages }}</p>
-          <p>Nota media en GoodReads: {{ book.rating }}</p>
-          <a :href="book.libraryLinks.paper">Biblioteca</a>
-          <br>
-          <a :href="book.libraryLinks.ebiblio">eBiblio</a>
+          class="book flex">
+          <div class="flex-shrink-0">
+            <img class="rounded-lg shadow-md" :src="book.image" alt="Portada del libro">
+          </div>
+          <div class="mt-4 mt-0 ml-6">
+            <a class="block mt-1 text-lg leading-tight font-semibold text-gray-900">{{ book.title }} de {{ book.author }}</a>
+            <br>
+            <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Número de páginas: {{ book.pages }}</div>
+            <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Nota media en GoodReads: {{ book.rating }}</div>
+            <a :href="book.libraryLinks.paper" class="mt-2 text-gray-600 underline">Biblioteca</a>
+            <br>
+            <a :href="book.libraryLinks.ebiblio" class="mt-2 text-gray-600 underline">eBiblio</a>
+          </div>
         </div>
       </main>
     </div>
@@ -95,33 +95,16 @@ export default {
     margin-top: 1em;
   }
 
-  .control {
-    color: #1e383c !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #fff;
-    border-radius: 2px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-    padding: 0.6rem;
-    box-shadow: 0 2px 4px 0 #1e383c,0 2px 4px 0 #1e383c;
-    max-width: 200px;
-    cursor: pointer;
-    margin: auto;
-  }
-
   .grid {
     margin-top: 1em;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-gap: 2em;
     align-items: stretch;
   }
 
   .grid #book {
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
     max-width: 100%;
   }
 

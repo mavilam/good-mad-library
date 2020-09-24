@@ -1,6 +1,6 @@
 <template>
   <div class="notfound">
-    <h1>Parece que la página que buscas no existe 😥</h1>
+    <h1 class="text-2xl">Parece que la página que buscas no existe 😥</h1>
   </div>
 </template>
 

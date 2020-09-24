@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <h1>Ups 😥 estoy sufriendo un error, prueba en otro momento 😭</h1>
+    <h1 class="text-2xl">Ups 😥 estoy sufriendo un error, prueba en otro momento 😭</h1>
   </div>
 </template>
 
