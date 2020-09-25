@@ -12,7 +12,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({ routes })
 
-axios.defaults.baseURL = 'https://658b76dbbfcb.eu.ngrok.io/'
+axios.defaults.baseURL = 'https://good-mad-library.herokuapp.com/'
 
 Vue.config.productionTip = false
 
