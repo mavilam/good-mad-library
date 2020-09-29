@@ -28,9 +28,9 @@
             <br>
             <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Número de páginas: {{ book.pages }}</div>
             <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Nota media en GoodReads: {{ book.rating }}</div>
-            <a :href="book.libraryLinks.paper" class="mt-2 text-gray-600 underline">Biblioteca</a>
+            <a target="_blank" :href="book.libraryLinks.paper" class="mt-2 text-gray-600 underline">Biblioteca</a>
             <br>
-            <a :href="book.libraryLinks.ebiblio" class="mt-2 text-gray-600 underline">eBiblio</a>
+            <a target="_blank" :href="book.libraryLinks.ebiblio" class="mt-2 text-gray-600 underline">eBiblio</a>
           </div>
         </div>
       </main>
