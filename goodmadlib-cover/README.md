@@ -5,20 +5,27 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Propiedades
+
+En el fichero src/main.js es necesario cambiar la url del servidor:
+
+```javascript
+axios.defaults.baseURL = 'La url de tu servidor'
+```
+
+Tiene que ser pública para que Goodreads pueda acceder. [ngrok](https://ngrok.com/).
+
+### Compilar y cambios en caliente para desarrollar
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilar para producción
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Linter
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
