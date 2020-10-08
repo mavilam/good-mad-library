@@ -35,6 +35,22 @@ npm run start
 ```
 
 ### Métodos
+
+#### /init_oauth
+Endpoint al que que llama el front para empezar a logarse en el API de Goodreads. Una vez logado, Goodreads responderá al endpoint /goodreads_oauth_callback
+
+#### /goodreads_oauth_callback
+Endpoint al que responde Goodreads una vez se ha logado el usuario correctamente. Aquí se pide p
+
+#### /user-data
+Este endpoint devuelve los datos del usuario con el siguiente formato:
+```json
+```
+
+#### /to-read
+Este endpoint recoge los libros del usuario que tiene en la estantería de *to-read* en Goodreads añadiendo los enlaces de la biblioteca de Madrid con el siguiente formato:
+```json
+```
 *En construcción*
 
 ## Frontend
