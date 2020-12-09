@@ -64,7 +64,7 @@ app.get('/to-read', async (req, res) => {
     const userId = req.query.userid
     let bookArr : string[] = await getToReadBooks(gr, userId)
     if (!bookArr || bookArr.length < 1) return res.status(200).json([])
-    const bookData : BookData[] = bookArr.map(book => new BookData(book))
+    const bookData : BookData[] = bookArr.reverse().map(book => new BookData(book))
     return res.status(200).json(bookData)
   } catch(err) {
     logger.error(err)
