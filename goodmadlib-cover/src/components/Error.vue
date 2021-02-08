@@ -1,12 +1,18 @@
 <template>
   <div class="error">
-    <h1 class="text-2xl">Ups 😥 estoy sufriendo un error</h1>
-    <h1 class="text-2xl">Prueba a volver a empezar.</h1>
+    <h1 class="text-2xl">
+      Ups 😥 estoy sufriendo un error
+    </h1>
+    <h1 class="text-2xl">
+      Prueba a volver a empezar.
+    </h1>
     <br>
     <button
       class="bg-transparent font-semibold py-2 px-4 border-2 rounded"
       @click="goToInit()"
-    >Volver al inicio</button>
+    >
+      Volver al inicio
+    </button>
   </div>
 </template>
 

@@ -5,7 +5,7 @@ module.exports = {
       'blue-back': '#007ace',
     },
     borderColor: theme => ({
-    ...theme('colors'),
+      ...theme('colors'),
     })
   },
   variants: {},

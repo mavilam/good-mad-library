@@ -28,4 +28,9 @@ export default {
     color: #47646f;
   }
 
+  button:hover {
+    box-shadow: 0 2px 4px 0
+    #1e383c,0 2px 4px 0 #1e383c;
+  }
+
 </style>
