@@ -1,7 +1,7 @@
 {
   "name": "Busca tus libros de Goodreads en la biblioteca de Madrid",
   "short_name": "GoodMadLib",
-  "start_url": "/",
+  "start_url": "/good-mad-library/",
   "icons": [{
     "src": "./android-chrome-192x192.png",
     "sizes": "192x192",
