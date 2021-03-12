@@ -20,7 +20,7 @@
         </button>
       </div>
       <br>
-      <main class="grid">
+      <main class="grid justify-center">
         <div
           v-for="(book, index) in books"
           :key="index"
@@ -127,7 +127,6 @@ export default {
 
   .grid #book {
     border: 1px solid #ccc;
-    max-width: 100%;
   }
 
   a {
