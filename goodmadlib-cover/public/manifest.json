@@ -1,5 +1,5 @@
 {
-  "name": "Busca tus libros de Goodreads en la biblioteca de Madrid",
+  "name": "Tus libros de Goodreads en la biblioteca de Madrid",
   "short_name": "GoodMadLib",
   "start_url": "/good-mad-library/",
   "icons": [{
@@ -21,8 +21,8 @@
     "type": "image/png",
     "purpose": "maskable"
   }],
-  "theme_color": "#007ace",
-  "background_color": "#007ace",
+  "theme_color": "#47646f",
+  "background_color": "#c3ccd3",
   "display": "standalone",
   "orientation": "natural"
 }
