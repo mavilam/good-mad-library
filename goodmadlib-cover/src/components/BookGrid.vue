@@ -8,51 +8,62 @@
       :color="'#47646f'"
     />
     <div v-if="!!books && books.length > 0">
-      <div class="header space-y-6">
+      <div class="header text-center space-y-6">
         <h1 class="text-3xl font-extrabold sm:text-4xl">
-          Libros pendientes de leer
+          Libros por leer
         </h1>
-        <button
+        <div class="content-center space-x-0 space-y-3 sm:space-x-4 sm:space-y-0">
+          <button
           class="bg-transparent hover:bg-blue-500  font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
           @click="orderByRating()"
         >
           Ordena por nota
         </button>
+        <button
+          class="bg-transparent hover:bg-blue-500  font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
+          @click="minimunInfo()"
+        >
+          Info. {{!minInfo ? "Reducida" : "Completa"}}
+        </button>
+        </div>
+        
       </div>
       <br>
-      <main class="grid justify-center">
+      <main class="grid grid-rows-1 justify-center">
         <div
           v-for="(book, index) in books"
           :key="index"
           class="book flex"
         >
-          <div class="flex-shrink-0">
+          <div class="flex-shrink-0" v-if="!minInfo">
             <img
               class="rounded-lg shadow-md"
               :src="book.image"
               alt="Portada del libro"
             >
           </div>
-          <div class="mt-4 mt-0 ml-6">
-            <a class="block mt-1 text-lg leading-tight font-semibold text-gray-900">{{ book.title }} de {{ book.author }}</a>
-            <br>
-            <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
-              Número de páginas: {{ book.pages }}
+          <div class="{mt-4: !minInfo, mt-0: !minInfo, ml-6: !minInfo}">
+            <a class="block mt-1 text-lg leading-tight font-medium text-gray-900">{{ book.title }} de {{ book.author }}</a>
+            <br v-if="!minInfo">
+            <div class="uppercase tracking-wide text-sm text-indigo-600 font-normal" v-if="!minInfo">
+              Páginas: {{ book.pages }}
             </div>
-            <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+            <div class="uppercase tracking-wide text-sm text-indigo-600 font-normal" v-if="!minInfo">
               Nota media en GoodReads: {{ book.rating }}
             </div>
-            <a
-              target="_blank"
-              :href="book.libraryLinks.paper"
-              class="mt-2 text-gray-600 underline"
-            >Biblioteca</a>
-            <br>
-            <a
-              target="_blank"
-              :href="book.libraryLinks.ebiblio"
-              class="mt-2 text-gray-600 underline"
-            >eBiblio</a>
+            <div>
+              <a
+                target="_blank"
+                :href="book.libraryLinks.paper"
+                class="mt-2 text-gray-600 underline"
+              >Biblioteca</a>
+              <span> / </span>
+              <a
+                target="_blank"
+                :href="book.libraryLinks.ebiblio"
+                class="mt-2 text-gray-600 underline"
+              >eBiblio</a>
+            </div>
           </div>
         </div>
       </main>
@@ -77,6 +88,7 @@ export default {
   },
   data() {
     return {
+      minInfo: false,
       userId: this.$route.params.id,
       books: undefined
     }
@@ -102,6 +114,9 @@ export default {
     },
     orderByRating() {
       this.books.sort(this.sortByRatingFn)
+    },
+    minimunInfo() {
+      this.minInfo = !this.minInfo
     }
   }
 }
@@ -110,11 +125,6 @@ export default {
 <style scoped>
   .bookgrid {
     margin: 1em;
-  }
-
-  .header {
-    text-align: center;
-    margin-top: 1em;
   }
 
   .grid {
