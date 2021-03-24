@@ -14,8 +14,17 @@ export default {
 <style>
   html {
     margin: 2em;
-    background-color: #c3ccd3;
-    color: #47646f;
+    background: #46b99a;
+    background: linear-gradient(135deg, #42c2b5 0%, #46b99a 100%);
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    color: white;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -25,12 +34,12 @@ export default {
   }
 
   a {
-    color: #47646f;
+    color: white;
   }
 
   button:hover {
-    box-shadow: 0 2px 4px 0
-    #1e383c,0 2px 4px 0 #1e383c;
+    background: white;
+    color: #46b99a;
   }
 
 </style>

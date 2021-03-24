@@ -3,7 +3,7 @@
     <fulfilling-square-spinner
       :animation-duration="1000"
       :size="100"
-      :color="'#47646f'"
+      :color="'#235c4d'"
     />
   </div>
 </template>

@@ -5,7 +5,7 @@
       class="center-msg spinner"
       :animation-duration="1000"
       :size="100"
-      :color="'#47646f'"
+      :color="'#235c4d'"
     />
     <div v-if="!!books && books.length > 0">
       <div class="header text-center space-y-6">
@@ -144,13 +144,14 @@ export default {
   }
 
   .book {
-    background-color:#f6f8fa;
+    color: #235c4d;
+    background-color:#d8f4ec;
     border-radius: 10px;
     padding: 1rem;
     text-align: center;
-    border-left: 2px solid #1e383c;
+    border-left: 2px solid #2a6f5d;
     box-shadow: 0 2px 4px 0
-    #1e383c,0 2px 4px 0 #1e383c;
+    #2a6f5d,0 2px 4px 0 #2a6f5d;
   }
 
   .spinner {

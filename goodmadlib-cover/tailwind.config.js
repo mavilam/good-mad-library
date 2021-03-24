@@ -1,8 +1,8 @@
 module.exports = {
   theme: {
     colors: {
-      'blue-text': '#47646f',
-      'blue-back': '#007ace',
+      'green-text': '#235c4d',
+      'green-back': '#46b99a',
     },
     borderColor: theme => ({
       ...theme('colors'),

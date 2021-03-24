@@ -8,7 +8,7 @@
     </h1>
     <br>
     <button
-      class="bg-transparent font-semibold py-2 px-4 border-2 rounded"
+      class="bg-transparent font-bold py-2 px-4 border-2 rounded"
       @click="goToInit()"
     >
       Volver al inicio

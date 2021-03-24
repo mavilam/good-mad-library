@@ -22,7 +22,7 @@
           <spring-spinner
             :animation-duration="3000"
             :size="40"
-            color="#47646f"
+            color="#FFF"
           />
         </div>
         <button
@@ -85,7 +85,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .intro {
     text-align: center;
