@@ -24,7 +24,7 @@ export default {
     -o-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
-    color: white;
+    color: #235c4d;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -34,11 +34,11 @@ export default {
   }
 
   a {
-    color: white;
+    color: #235c4d;
   }
 
   button:hover {
-    background: white;
+    background: #235c4d;
     color: #46b99a;
   }
 

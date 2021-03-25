@@ -14,13 +14,13 @@
         </h1>
         <div class="content-center space-x-0 space-y-3 sm:space-x-4 sm:space-y-0">
           <button
-          class="bg-transparent hover:bg-blue-500  font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
+          class="bg-transparent hover:bg-blue-500  font-semibold py-2 px-4 border hover:border-transparent rounded"
           @click="orderByRating()"
         >
           Ordena por nota
         </button>
         <button
-          class="bg-transparent hover:bg-blue-500  font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
+          class="bg-transparent hover:bg-blue-500  font-semibold py-2 px-4 border hover:border-transparent rounded"
           @click="minimunInfo()"
         >
           Info. {{!minInfo ? "Reducida" : "Completa"}}
