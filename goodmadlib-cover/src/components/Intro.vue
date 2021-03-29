@@ -22,7 +22,7 @@
           <spring-spinner
             :animation-duration="3000"
             :size="40"
-            color="#FFF"
+            color="#235c4d"
           />
         </div>
         <button
