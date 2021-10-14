@@ -54,7 +54,7 @@
             <div>
               <a
                 target="_blank"
-                :href="book.libraryLinks.paper"
+                :href="chooseLinkForPaper(book.libraryLinks)"
                 class="mt-2 text-gray-600 underline"
               >Biblioteca</a>
               <span> / </span>
@@ -90,7 +90,8 @@ export default {
     return {
       minInfo: false,
       userId: this.$route.params.id,
-      books: undefined
+      books: undefined,
+      isMobile: false
     }
   },
   mounted() {
@@ -102,8 +103,28 @@ export default {
         console.log(err)
         this.$router.push({ path: `/error` })
       })
+    if ("maxTouchPoints" in navigator) {
+      this.isMobile = navigator.maxTouchPoints > 0
+    } else if ("msMaxTouchPoints" in navigator) {
+      this.isMobile = navigator.msMaxTouchPoints > 0
+    } else {
+      var mQ = window.matchMedia && matchMedia("(pointer:coarse)")
+      if (mQ && mQ.media === "(pointer:coarse)") {
+        this.isMobile = !!mQ.matches
+      } else if ('orientation' in window) {
+        this.isMobile = true // deprecated, but good fallback          
+      } else {
+        // Only as a last resort, fall back to user agent sniffing
+        var UA = navigator.userAgent
+        this.isMobile = (/\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) || /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA))
+      }
+    }
   },
   methods: {
+    chooseLinkForPaper(bookLinks) {
+      console.log(JSON.stringify(bookLinks))
+      return this.isMobile ? bookLinks.paperMobile : bookLinks.paperDesktop
+    },
     sortByRatingFn(a, b) {
       const ratingA = a.rating
       const ratingB = b.rating
