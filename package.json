@@ -17,6 +17,6 @@
     "cors": "^2.8.5",
     "ejs": "^3.0.1",
     "express": "^4.16.2",
-    "goodreads-api-node": "0.0.10",
+    "goodreads-api-node": "0.0.10"
   }
 }
