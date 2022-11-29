@@ -2,7 +2,7 @@
   "name": "goodreads",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/init.js",
+  "main": "index.js",
   "types": "dist/init.d.ts",
   "scripts": {
     "ts:build": "tsc",
