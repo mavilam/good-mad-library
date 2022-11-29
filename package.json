@@ -5,12 +5,7 @@
   "main": "index.js",
   "types": "dist/init.d.ts",
   "scripts": {
-    "ts:build": "tsc",
-    "postinstall": "npm run ts:build",
-    "serve": "node dist/init.js",
     "start": "node index.js",
-    "watch-node": "nodemon dist/init.js",
-    "watch-ts": "tsc -w"
   },
   "author": "",
   "license": "ISC",
