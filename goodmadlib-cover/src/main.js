@@ -13,7 +13,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({ routes })
 
-axios.defaults.baseURL = 'https://good-mad-library.herokuapp.com/'
+axios.defaults.baseURL = 'https://clean-fly-headscarf.cyclic.app/'
 
 Vue.config.productionTip = false
 
